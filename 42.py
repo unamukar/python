@@ -8,3 +8,7 @@ sudo apt-get install links
 links http://localhost:8000
 ls -l
 python3 manage.py startapp adoptions
+cat adoptions/models.py
+python3 manage.py makemigrations
+python3 manage.py showmigrations
+python3 manage.py migrate
