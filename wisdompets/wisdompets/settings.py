@@ -25,7 +25,7 @@ SECRET_KEY = '5b92z-f=3&t0^ehp&$o^x7&-9h6509s8k9b5e0=8+fy+yz$a-v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django.gotdns.org','142.93.169.43']
+ALLOWED_HOSTS = ['django.gotdns.org']
 
 
 # Application definition
