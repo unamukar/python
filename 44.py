@@ -1,8 +1,9 @@
-#from urllib import request,parse
 import urllib.request
 import urllib.parse
-
 def main():
+    #p=urllib.request.ProxyHandler({'http':'http://user:password@proxysis:8080',         'https':'https://usuario:password@proxysis:8080'})
+    #o=urllib.request.build_opener(p)
+    #urllib.request.install_opener(o)    
     url_get='http://httpbin.org/get'
     datos_get={'profesor':'Sebastian','alumnos':'UTE','metodo':'GET'}
     codigo_get=urllib.parse.urlencode(datos_get)
@@ -16,4 +17,3 @@ def main():
     print('Resultado de POST: {0}'.format(resultado_post.status))
     print(resultado_post.read().decode('utf-8'))
 if __name__=='__main__':main()
-
