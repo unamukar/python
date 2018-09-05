@@ -19,6 +19,6 @@ from peliculas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('peliculas/(\d+)',views.detalles,name='peliculas'),
+    re_path('peliculas/(\d+)',views.detalles,name='detalles'),
     path('',views.home,name='home'),
 ]

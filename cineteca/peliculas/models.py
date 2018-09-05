@@ -3,14 +3,13 @@ from django.db import models
 # Create your models here.
 
 class Pelicula(models.Model):
-	GENEROS=[('C','Comedia'),('D','Drama'),('T','Terror')]
 	titulo=models.CharField(max_length=90)
 	director=models.CharField(max_length=90)
 	actor_principal=models.CharField(max_length=90)
-	genero=models.CharField(choices=GENEROS,max_length=1)
+	actriz_principal=models.CharField(max_length=90)
+	genero=models.CharField(max_length=90)
 	pais=models.CharField(max_length=90)
-	fecha_estreno=models.DateTimeField()
-	comentarios=models.TextField()
+	fecha_estreno=models.IntegerField()
 	premios=models.ManyToManyField('Premio',blank=True)
 
 class Premio(models.Model):
