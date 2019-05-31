@@ -1,4 +1,7 @@
-# Exercise: Find the number of anagrams in the list of words
+# EXERCISE: 
+# Given a list of words from a dictionary file, separate words into classes of words with the same length
+# For each class of words of the same length, find all anagrams
+# Count the total number of anagrams in each class
 
 # Libraries
 import urllib.request
