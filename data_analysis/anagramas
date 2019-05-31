@@ -1,0 +1,37 @@
+# Exercise: Find the number of anagrams in the list of words
+
+# Libraries
+import urllib.request
+import collections
+
+# Declare the variables
+url='http://python.gotdns.org/words.txt'
+fichero='words.txt'
+
+# Download the filename
+urllib.request.urlretrieve(url,fichero)
+
+# Clean the list of words
+lista=sorted(list(set([palabra.strip().lower() for palabra in open(fichero,'r')])))
+
+# Return a unique value for each word
+def unico(palabra):
+  return ''.join(sorted(palabra))
+
+# Define an empty dictionary
+conjunto_unicos=collections.defaultdict(list)
+
+# Fill the dictionary with each word and its unique value
+for palabra in lista:
+  conjunto_unicos[unico(palabra)].append(palabra)
+
+# Return the anagrams of a word 
+def anagramas(palabra):
+  return conjunto_unicos[unico(palabra)]
+
+# Return all the anagrams in the list of words
+def anagramas_lista(lista):
+  return {palabra:anagramas(palabra) for palabra in lista if len(anagramas(palabra))>1}
+
+# Result of the exercise
+RESULTADO=len(anagramas_lista(lista))
