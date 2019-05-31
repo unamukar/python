@@ -1,7 +1,4 @@
-# EXERCISE: 
-# Given a list of words from a dictionary file, separate words into classes of words with the same length
-# For each class of words of the same length, find all anagrams
-# Count the total number of anagrams in each class
+# Exercise: Find the number of anagrams in the list of words
 
 # Libraries
 import urllib.request
@@ -12,7 +9,7 @@ url='http://python.gotdns.org/words.txt'
 fichero='words.txt'
 
 # Download the filename
-urllib.request.urlretrieve(url,fichero)
+#urllib.request.urlretrieve(url,fichero)
 
 # Clean the list of words
 lista=sorted(list(set([palabra.strip().lower() for palabra in open(fichero,'r')])))
@@ -21,10 +18,8 @@ lista=sorted(list(set([palabra.strip().lower() for palabra in open(fichero,'r')]
 def unico(palabra):
   return ''.join(sorted(palabra))
 
-# Define an empty dictionary
+# Define an empty dictionary and fill it with each unique value and its associated words
 conjunto_unicos=collections.defaultdict(list)
-
-# Fill the dictionary with each word and its unique value
 for palabra in lista:
   conjunto_unicos[unico(palabra)].append(palabra)
 
@@ -36,5 +31,18 @@ def anagramas(palabra):
 def anagramas_lista(lista):
   return {palabra:anagramas(palabra) for palabra in lista if len(anagramas(palabra))>1}
 
+
+# Define an empty dictionary and fill it with each length and its associated words
+conjunto_tamano=collections.defaultdict(list)
+for palabra in lista:
+  conjunto_tamano[len(palabra)].append(palabra)
+
+#anagramas_tamano={}
+cuenta_anagramas={}
+for tamano,palabras in conjunto_tamano.items():
+  cuenta_anagramas[tamano]=sum(1 for palabra in palabras if len(anagramas(palabra))>1)
+#  anagramas_tamano[tamano]={palabra:len(anagramas(palabra))-1 for palabra in palabras if len(anagramas(palabra))>1}
+
 # Result of the exercise
-RESULTADO=len(anagramas_lista(lista))
+RESULTADO=cuenta_anagramas
+
