@@ -34,6 +34,18 @@ def anagramas(palabra):
 def anagramas_lista(lista):
   return {palabra:anagramas(palabra) for palabra in lista if len(anagramas(palabra))>1}
 
+# Return the count of all the anagrams in the list of words
+def anagramas_lista_cuenta(lista):
+  return {palabra:len(anagramas(palabra))-1 for palabra in lista if len(anagramas(palabra))>1}
+
+# Return the word with the most number of anagrams in the list
+def anagramas_lista_max(lista):
+  cuenta_max=0
+  for palabra in lista:
+    if len(anagramas(palabra))-1>cuenta_max:
+      cuenta_max=len(anagramas(palabra))-1
+      palabra_max=palabra
+  return {palabra_max: cuenta_max}  
 
 # Define an empty dictionary and fill it with each length and its associated words
 conjunto_tamano=collections.defaultdict(list)
