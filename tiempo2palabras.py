@@ -42,6 +42,6 @@ class t2w:
         H=self.hour();h=int(H)
         hora=self.h2w();minuto=self.m2w()
         if h<6:return '{} {} de la madrugada'.format(hora,minuto)
-        elif h<12:return '{} {} de la manana'.format(hora,minuto)
-        elif h<20:return '{} {} de la tarde'.format(hora,minuto)
+        elif h<13:return '{} {} de la manana'.format(hora,minuto)
+        elif h<21:return '{} {} de la tarde'.format(hora,minuto)
         else:return '{} {} de la noche'.format(hora,minuto)
