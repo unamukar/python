@@ -60,4 +60,4 @@ for tamano,palabras in conjunto_tamano.items():
 
 # Result of the exercise
 RESULTADO=cuenta_anagramas
-
+print(RESULTADO)

@@ -5,6 +5,7 @@ def main():
     print(sys.platform)
     print(os.name)
     print(os.getenv('PATH'))
+    print(os.getenv('PWD'))
     print(os.getcwd())
     print(os.urandom(8).hex())
     print(random.randint(1,1000))
