@@ -1,8 +1,8 @@
 pip3 install django
-PATH="$PATH:/home/sebastian_colomar/.local/bin"
+PATH="$PATH:$HOME/.local/bin"
 sudo iptables -t nat -A PREROUTING -d 142.93.169.43/32 -i eth0 -p tcp -m tcp --dport 80 -j DNAT --to-destination 142.93.169.43:8000
-sudo iptables -t nat -A POSTROUTING -s 142.93.169.43/32 -o eth0 -p tcp -m tcp --sport 8000 -j MASQUERADE
-django-admin.py startproject cineteca&&cd cineteca
+sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp -m tcp --sport 8000 -j MASQUERADE
+django-admin.py startproject cineteca && cd cineteca
 python3 manage.py startapp peliculas
 sed -i "/ALLOWED/s/\[\]/\['django.gotdns.org'\]/" cineteca/settings.py
 x=django.contrib.admin;sed -i "/$x/s/^\(\s\+\)'"$x"',/\1'peliculas',\n\1'"$x"',/" cineteca/settings.py
