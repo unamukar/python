@@ -1,12 +1,12 @@
 pip3 install django
-django-admin.py startproject cineteca3 && cd cineteca3
+django-admin.py startproject cineteca && cd cineteca
 python manage.py startapp peliculas
 
-x=django.contrib.admin;sed -i "/$x/s/^\(\s\+\)'"$x"',/\1'peliculas',\n\1'"$x"',/" cineteca3/settings.py
-sed -i "/^from.*path/s/$/,re_path/" cineteca3/urls.py
-sed -i "/^from django.urls/afrom peliculas import views" cineteca3/urls.py
-sed -i "/admin.site.urls/s/^\(\s\+\)\(path.*$\)/\1\2\n\1path('',views.home,name='home'),/" cineteca3/urls.py
-sed -i "/admin.site.urls/s/^\(\s\+\)\(path.*$\)/\1\2\n\1re_path('peliculas\/(\\\d+)',views.detalles,name='detalles'),/" cineteca3/urls.py
+x=django.contrib.admin;sed -i "/$x/s/^\(\s\+\)'"$x"',/\1'peliculas',\n\1'"$x"',/" cineteca/settings.py
+sed -i "/^from.*path/s/$/,re_path/" cineteca/urls.py
+sed -i "/^from django.urls/afrom peliculas import views" cineteca/urls.py
+sed -i "/admin.site.urls/s/^\(\s\+\)\(path.*$\)/\1\2\n\1path('',views.home,name='home'),/" cineteca/urls.py
+sed -i "/admin.site.urls/s/^\(\s\+\)\(path.*$\)/\1\2\n\1re_path('peliculas\/(\\\d+)',views.detalles,name='detalles'),/" cineteca/urls.py
 echo -e "\nclass Pelicula(models.Model):">> peliculas/models.py
 echo -e "\ttitulo=models.CharField(max_length=90)">> peliculas/models.py
 echo -e "\tdirector=models.CharField(max_length=90)">> peliculas/models.py
