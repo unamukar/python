@@ -2,6 +2,7 @@
 import time
 def elapsed_time(f):
     def wrapper():
+        print('Here starts the wrapper')
         t1=time.time();f();t2=time.time()
         print('Elapsed time: {} ms'.format((t2-t1)*1000))
     return wrapper
